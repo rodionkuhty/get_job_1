@@ -99,7 +99,16 @@ export default class Header extends React.Component {
                       {item => props => (
                         <span style={props}>
                           <NavItem>
-                            <StyledNav to={item.to}>{item.pageName}</StyledNav>
+                            <StyledNav
+                              exact
+                              to={item.to}
+                              activeStyle={{
+                                borderBottom: "solid 3px white",
+                                paddingBottom: "13px"
+                              }}
+                            >
+                              {item.pageName}
+                            </StyledNav>
                           </NavItem>
                         </span>
                       )}
