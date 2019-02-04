@@ -1,7 +1,7 @@
 import React from "react";
 
 //animations
-import { Trail, config } from "react-spring";
+import { Spring, Trail, config, animated } from "react-spring";
 //reactstrap
 import {
   Collapse,
@@ -29,6 +29,10 @@ const StyledNav = styled(NavLink)`
   }
 `;
 
+const StyledNavbar = styled(Navbar)`
+  background: linear-gradient(to right, #ee9ca7, #ffdde1);
+`;
+
 const NavItems = [
   { to: "/", pageName: "Home" },
   { to: "/about", pageName: "About" },
@@ -53,33 +57,45 @@ export default class Header extends React.Component {
   }
   render() {
     return (
-      <div>
-        <Navbar color="dark" light expand="md">
-          <NavbarBrand href="/">
-            <span style={{ color: "white" }}>WebileSoft</span>
-          </NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              <Trail
-                config={config.slow}
-                items={NavItems}
-                keys={({ pageName }) => pageName}
-                from={{ transform: "translate3d(0,-40px,0)" }}
-                to={{ transform: "translate3d(0,0px,0)" }}
-              >
-                {item => props => (
-                  <span style={props}>
-                    <NavItem>
-                      <StyledNav to={item.to}>{item.pageName}</StyledNav>
-                    </NavItem>
-                  </span>
-                )}
-              </Trail>
-            </Nav>
-          </Collapse>
-        </Navbar>
-      </div>
+      <Spring
+        config={config.slow}
+        native
+        from={{ opacity: 0, transform: "translateY(-10px)" }}
+        to={{ opacity: 1, transform: "translateY(0px)" }}
+      >
+        {props => (
+          <animated.div style={props}>
+            {" "}
+            <div>
+              <Navbar color="dark" expand="md">
+                <NavbarBrand href="/">
+                  <span style={{ color: "white" }}>WebileSoft</span>
+                </NavbarBrand>
+                <NavbarToggler onClick={this.toggle} />
+                <Collapse isOpen={this.state.isOpen} navbar>
+                  <Nav className="ml-auto" navbar>
+                    <Trail
+                      config={config.slow}
+                      items={NavItems}
+                      keys={({ pageName }) => pageName}
+                      from={{ transform: "translate3d(0,-40px,0)" }}
+                      to={{ transform: "translate3d(0,0px,0)" }}
+                    >
+                      {item => props => (
+                        <span style={props}>
+                          <NavItem>
+                            <StyledNav to={item.to}>{item.pageName}</StyledNav>
+                          </NavItem>
+                        </span>
+                      )}
+                    </Trail>
+                  </Nav>
+                </Collapse>
+              </Navbar>
+            </div>
+          </animated.div>
+        )}
+      </Spring>
     );
   }
 }
