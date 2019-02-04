@@ -29,6 +29,7 @@ const LayerOne = () => {
     <StyledLayerOne>
       <StyledPar>
         <h1>We Are Specializing in JavaScript IT-company</h1>
+        <p>click to scroll =></p>
       </StyledPar>
     </StyledLayerOne>
   );
