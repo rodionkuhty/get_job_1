@@ -10,7 +10,7 @@ import { Transition, animated, config } from "react-spring";
 
 //elements
 
-import Header from "./components/header";
+import { Header } from "./components/header";
 
 //pages
 

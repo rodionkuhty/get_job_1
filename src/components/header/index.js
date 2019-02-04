@@ -49,7 +49,7 @@ const NavItems = [
   { to: "/contact", pageName: "Contact" }
 ];
 
-export default class Header extends React.Component {
+class Header extends React.Component {
   constructor(props) {
     super(props);
 
@@ -103,8 +103,7 @@ export default class Header extends React.Component {
                               exact
                               to={item.to}
                               activeStyle={{
-                                borderBottom: "solid 3px white",
-                                paddingBottom: "13px"
+                                borderBottom: "solid 3px white"
                               }}
                             >
                               {item.pageName}
@@ -124,6 +123,7 @@ export default class Header extends React.Component {
   }
 }
 
+export { Header, StyledNav };
 // <NavItem>
 //     <StyledNav to="/">Home</StyledNav>
 // </NavItem>

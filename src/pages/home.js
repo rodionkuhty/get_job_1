@@ -10,7 +10,7 @@ import { Parallax, ParallaxLayer } from "react-spring/addons";
 
 //layers
 
-import { LayerOne } from "../components/parallax_content";
+import { LayerOne, LayerTwo, LayerThree } from "../components/parallax_content";
 
 const StyledMainContainer = styled.div`
   width: 100%;
@@ -19,7 +19,7 @@ const StyledMainContainer = styled.div`
 
 const StyledMainLine = styled.div`
   width: 100%;
-  min-height: 7px;
+  height: 100vh;
   background: linear-gradient(to right, #feac5e, #c779d0, #4bc0c8);
   display: flex;
   justify-content: center;
@@ -33,31 +33,29 @@ export default class Home extends Component {
       <StyledMainContainer>
         <Fragment>
           <StyledMainLine>
-            <p>...</p>
+            <Parallax
+              pages={3}
+              scrolling={false}
+              horizontal
+              ref={ref => (this.parallax = ref)}
+            >
+              <ParallaxLayer offset={0} speed={0.5}>
+                <div onClick={() => this.parallax.scrollTo(1)}>
+                  <LayerOne />
+                </div>
+              </ParallaxLayer>
+              <ParallaxLayer offset={1} speed={0.5}>
+                <div onClick={() => this.parallax.scrollTo(2)}>
+                  <LayerTwo />
+                </div>
+              </ParallaxLayer>
+              <ParallaxLayer offset={2} speed={0.5}>
+                <div onClick={() => this.parallax.scrollTo(0)}>
+                  <LayerThree />
+                </div>
+              </ParallaxLayer>
+            </Parallax>
           </StyledMainLine>
-
-          <Parallax
-            pages={3}
-            scrolling={false}
-            horizontal
-            ref={ref => (this.parallax = ref)}
-          >
-            <ParallaxLayer offset={0} speed={0.5}>
-              <div onClick={() => this.parallax.scrollTo(1)}>
-                <LayerOne />
-              </div>
-            </ParallaxLayer>
-            <ParallaxLayer offset={1} speed={0.5}>
-              <span onClick={() => this.parallax.scrollTo(2)}>
-                Layers can contain anything2
-              </span>
-            </ParallaxLayer>
-            <ParallaxLayer offset={2} speed={0.5}>
-              <span onClick={() => this.parallax.scrollTo(0)}>
-                Layers can contain anything3
-              </span>
-            </ParallaxLayer>
-          </Parallax>
         </Fragment>
       </StyledMainContainer>
     );
