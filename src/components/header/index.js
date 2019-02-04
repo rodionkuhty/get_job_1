@@ -18,19 +18,27 @@ import { NavLink } from "react-router-dom";
 //styled-components
 import styled from "styled-components";
 
+//burger image
+import burger from "../../img/burger.png";
+
 const StyledNav = styled(NavLink)`
   text-decoration: none;
   font-size: 18px;
   padding: 0 7px;
   color: white;
+  transition: all 0.7s;
   :hover {
-    color: red;
+    color: coral;
     text-decoration: none;
   }
 `;
 
 const StyledNavbar = styled(Navbar)`
-  background: linear-gradient(to right, #ee9ca7, #ffdde1);
+  background: linear-gradient(to right, #7b4397, #dc2430);
+`;
+
+const StyledNavbaToggler = styled(NavbarToggler)`
+  margin-bottom: 2px;
 `;
 
 const NavItems = [
@@ -67,11 +75,18 @@ export default class Header extends React.Component {
           <animated.div style={props}>
             {" "}
             <div>
-              <Navbar color="dark" expand="md">
+              <StyledNavbar color="dark" expand="md">
                 <NavbarBrand href="/">
                   <span style={{ color: "white" }}>WebileSoft</span>
                 </NavbarBrand>
-                <NavbarToggler onClick={this.toggle} />
+                <StyledNavbaToggler onClick={this.toggle}>
+                  <img
+                    src={burger}
+                    alt="nav burger"
+                    width="30px"
+                    height="30px"
+                  />
+                </StyledNavbaToggler>
                 <Collapse isOpen={this.state.isOpen} navbar>
                   <Nav className="ml-auto" navbar>
                     <Trail
@@ -91,7 +106,7 @@ export default class Header extends React.Component {
                     </Trail>
                   </Nav>
                 </Collapse>
-              </Navbar>
+              </StyledNavbar>
             </div>
           </animated.div>
         )}
