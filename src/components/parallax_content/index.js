@@ -1,13 +1,14 @@
-import React, { Component, Fragment } from "react";
+import React from "react";
 
 //styled-components
 import styled from "styled-components";
 
 //NavLink
 
-import { NavLink } from "react-router-dom";
-
 import { StyledNav } from "../header";
+
+//Card
+import Card from "../card";
 
 const StyledLayerOne = styled.div`
   width: 100%;
@@ -15,21 +16,36 @@ const StyledLayerOne = styled.div`
 `;
 
 const StyledText = styled.div`
-  width: 300px;
-  height: 300px;
-  border: 1px solid red;
+  width: 400px;
+  height: 200px;
+  text-align: center;
+  color: white;
+  margin: 0 auto;
 `;
 const StyledPar = styled.div`
   text-align: center;
   margin-top: 20%;
 `;
 
+const Styledh1 = styled.h1`
+  color: white;
+`;
+
 const LayerOne = () => {
   return (
     <StyledLayerOne>
       <StyledPar>
-        <h1>We Are Specializing in JavaScript IT-company</h1>
-        <p>click to scroll =></p>
+        <Card>
+          <Styledh1>We Are Specializing in JavaScript IT-company</Styledh1>
+          <StyledText>
+            <p>
+              Founded in 2016, WebileSoft provides end-to-end development of
+              consumer web, mobile, desktop and embedded applications. We
+              specialize on JavaScript and apply the accumulated backend and
+              frontend engineering experience for projects of any scale.
+            </p>
+          </StyledText>
+        </Card>
       </StyledPar>
     </StyledLayerOne>
   );

@@ -12,18 +12,22 @@ import { Parallax, ParallaxLayer } from "react-spring/addons";
 
 import { LayerOne, LayerTwo, LayerThree } from "../components/parallax_content";
 
+//lines
+
 const StyledMainContainer = styled.div`
   width: 100%;
   height: 100%;
+  background: linear-gradient(to right, #feac5e, #c779d0, #4bc0c8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const StyledMainLine = styled.div`
   width: 100%;
   height: 100vh;
-  background: linear-gradient(to right, #feac5e, #c779d0, #4bc0c8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: linear-gradient(to right, #7b4397, #dc2430);
+
   text-align: center;
 `;
 

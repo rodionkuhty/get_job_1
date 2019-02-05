@@ -34,7 +34,7 @@ const StyledNav = styled(NavLink)`
 `;
 
 const StyledNavbar = styled(Navbar)`
-  background: linear-gradient(to right, #7b4397, #dc2430);
+  background: black;
 `;
 
 const StyledNavbaToggler = styled(NavbarToggler)`
@@ -68,8 +68,8 @@ class Header extends React.Component {
       <Spring
         config={config.slow}
         native
-        from={{ opacity: 0, transform: "translateY(-10px)" }}
-        to={{ opacity: 1, transform: "translateY(0px)" }}
+        from={{ opacity: 0 }}
+        to={{ opacity: 1 }}
       >
         {props => (
           <animated.div style={props}>
@@ -103,7 +103,7 @@ class Header extends React.Component {
                               exact
                               to={item.to}
                               activeStyle={{
-                                borderBottom: "solid 3px white"
+                                color: "coral"
                               }}
                             >
                               {item.pageName}
@@ -124,18 +124,3 @@ class Header extends React.Component {
 }
 
 export { Header, StyledNav };
-// <NavItem>
-//     <StyledNav to="/">Home</StyledNav>
-// </NavItem>
-//     <NavItem>
-//         <StyledNav to="/about">About</StyledNav>
-//     </NavItem>
-//     <NavItem>
-//         <StyledNav to="/test">Services</StyledNav>
-//     </NavItem>
-//     <NavItem>
-//         <StyledNav to="/test">Our Work</StyledNav>
-//     </NavItem>
-//     <NavItem>
-//         <StyledNav to="/test">Contact</StyledNav>
-//     </NavItem>
